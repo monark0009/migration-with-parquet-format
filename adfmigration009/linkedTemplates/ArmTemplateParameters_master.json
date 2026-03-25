@@ -1,0 +1,117 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adfmigration009"
+		},
+		"DS_SQLSERVER_TABLE_password": {
+			"value": ""
+		},
+		"LS_ADLS_CP_FILTER_accountKey": {
+			"value": ""
+		},
+		"LS_ADLS_CSV_accountKey": {
+			"value": ""
+		},
+		"LS_ADLS_FILES_accountKey": {
+			"value": ""
+		},
+		"LS_ADLS_PARQUET_accountKey": {
+			"value": ""
+		},
+		"LS_CP_SQL_FULL_password": {
+			"value": ""
+		},
+		"LS_ONPREM_SQLSERVER_DW_password": {
+			"value": ""
+		},
+		"LS_SQLSERVER_password": {
+			"value": ""
+		},
+		"LS_SQLSERVER_TABLE_password": {
+			"value": ""
+		},
+		"LS_SQLSER_TABLE_password": {
+			"value": ""
+		},
+		"LS_parquet_accountKey": {
+			"value": ""
+		},
+		"DS_SQLSERVER_TABLE_properties_typeProperties_server": {
+			"value": "DESKTOP-SPFUOTO"
+		},
+		"DS_SQLSERVER_TABLE_properties_typeProperties_database": {
+			"value": "tables"
+		},
+		"DS_SQLSERVER_TABLE_properties_typeProperties_userName": {
+			"value": "monark"
+		},
+		"LS_ADLS_CP_FILTER_properties_typeProperties_url": {
+			"value": "https://adlsmigration009.dfs.core.windows.net/"
+		},
+		"LS_ADLS_CSV_properties_typeProperties_url": {
+			"value": "https://adlsmigration009.dfs.core.windows.net/"
+		},
+		"LS_ADLS_FILES_properties_typeProperties_url": {
+			"value": "https://adlsmigration009.dfs.core.windows.net/"
+		},
+		"LS_ADLS_PARQUET_properties_typeProperties_url": {
+			"value": "https://adlsmigration009.dfs.core.windows.net/"
+		},
+		"LS_CP_SQL_FULL_properties_typeProperties_server": {
+			"value": "DESKTOP-SPFUOTO"
+		},
+		"LS_CP_SQL_FULL_properties_typeProperties_database": {
+			"value": "tables"
+		},
+		"LS_CP_SQL_FULL_properties_typeProperties_userName": {
+			"value": "monark"
+		},
+		"LS_ONPREM_SQLSERVER_DW_properties_typeProperties_server": {
+			"value": "DESKTOP-SPFUOTO"
+		},
+		"LS_ONPREM_SQLSERVER_DW_properties_typeProperties_database": {
+			"value": "tables"
+		},
+		"LS_ONPREM_SQLSERVER_DW_properties_typeProperties_userName": {
+			"value": "monark"
+		},
+		"LS_SQLSERVER_properties_typeProperties_server": {
+			"value": "DESKTOP-SPFUOTO"
+		},
+		"LS_SQLSERVER_properties_typeProperties_database": {
+			"value": "tables"
+		},
+		"LS_SQLSERVER_properties_typeProperties_userName": {
+			"value": "monark"
+		},
+		"LS_SQLSERVER_TABLE_properties_typeProperties_server": {
+			"value": "DESKTOP-SPFUOTO"
+		},
+		"LS_SQLSERVER_TABLE_properties_typeProperties_database": {
+			"value": "tables"
+		},
+		"LS_SQLSERVER_TABLE_properties_typeProperties_userName": {
+			"value": "monark"
+		},
+		"LS_SQLSER_TABLE_properties_typeProperties_server": {
+			"value": "DESKTOP-SPFUOTO"
+		},
+		"LS_SQLSER_TABLE_properties_typeProperties_database": {
+			"value": "tables"
+		},
+		"LS_SQLSER_TABLE_properties_typeProperties_userName": {
+			"value": "monark"
+		},
+		"LS_parquet_properties_typeProperties_url": {
+			"value": "https://adlsmigration009.dfs.core.windows.net/"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}

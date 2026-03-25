@@ -1,0 +1,280 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "adfmigration009"
+		},
+		"DS_SQLSERVER_TABLE_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'DS_SQLSERVER_TABLE'"
+		},
+		"LS_ADLS_CP_FILTER_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_ADLS_CP_FILTER'"
+		},
+		"LS_ADLS_CSV_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_ADLS_CSV'"
+		},
+		"LS_ADLS_FILES_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_ADLS_FILES'"
+		},
+		"LS_ADLS_PARQUET_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_ADLS_PARQUET'"
+		},
+		"LS_CP_SQL_FULL_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_CP_SQL_FULL'"
+		},
+		"LS_ONPREM_SQLSERVER_DW_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_ONPREM_SQLSERVER_DW'"
+		},
+		"LS_SQLSERVER_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_SQLSERVER'"
+		},
+		"LS_SQLSERVER_TABLE_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_SQLSERVER_TABLE'"
+		},
+		"LS_SQLSER_TABLE_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_SQLSER_TABLE'"
+		},
+		"LS_parquet_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_parquet'"
+		},
+		"DS_SQLSERVER_TABLE_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "DESKTOP-SPFUOTO"
+		},
+		"DS_SQLSERVER_TABLE_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "tables"
+		},
+		"DS_SQLSERVER_TABLE_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "monark"
+		},
+		"LS_ADLS_CP_FILTER_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsmigration009.dfs.core.windows.net/"
+		},
+		"LS_ADLS_CSV_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsmigration009.dfs.core.windows.net/"
+		},
+		"LS_ADLS_FILES_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsmigration009.dfs.core.windows.net/"
+		},
+		"LS_ADLS_PARQUET_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsmigration009.dfs.core.windows.net/"
+		},
+		"LS_CP_SQL_FULL_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "DESKTOP-SPFUOTO"
+		},
+		"LS_CP_SQL_FULL_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "tables"
+		},
+		"LS_CP_SQL_FULL_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "monark"
+		},
+		"LS_ONPREM_SQLSERVER_DW_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "DESKTOP-SPFUOTO"
+		},
+		"LS_ONPREM_SQLSERVER_DW_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "tables"
+		},
+		"LS_ONPREM_SQLSERVER_DW_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "monark"
+		},
+		"LS_SQLSERVER_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "DESKTOP-SPFUOTO"
+		},
+		"LS_SQLSERVER_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "tables"
+		},
+		"LS_SQLSERVER_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "monark"
+		},
+		"LS_SQLSERVER_TABLE_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "DESKTOP-SPFUOTO"
+		},
+		"LS_SQLSERVER_TABLE_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "tables"
+		},
+		"LS_SQLSERVER_TABLE_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "monark"
+		},
+		"LS_SQLSER_TABLE_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "DESKTOP-SPFUOTO"
+		},
+		"LS_SQLSER_TABLE_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "tables"
+		},
+		"LS_SQLSER_TABLE_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "monark"
+		},
+		"LS_parquet_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsmigration009.dfs.core.windows.net/"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "adfmigration009_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"LS_ADLS_CP_FILTER_accountKey": {
+						"value": "[parameters('LS_ADLS_CP_FILTER_accountKey')]"
+					},
+					"LS_ADLS_CSV_accountKey": {
+						"value": "[parameters('LS_ADLS_CSV_accountKey')]"
+					},
+					"LS_ADLS_FILES_accountKey": {
+						"value": "[parameters('LS_ADLS_FILES_accountKey')]"
+					},
+					"LS_ADLS_PARQUET_accountKey": {
+						"value": "[parameters('LS_ADLS_PARQUET_accountKey')]"
+					},
+					"LS_parquet_accountKey": {
+						"value": "[parameters('LS_parquet_accountKey')]"
+					},
+					"DS_SQLSERVER_TABLE_password": {
+						"value": "[parameters('DS_SQLSERVER_TABLE_password')]"
+					},
+					"LS_CP_SQL_FULL_password": {
+						"value": "[parameters('LS_CP_SQL_FULL_password')]"
+					},
+					"LS_ONPREM_SQLSERVER_DW_password": {
+						"value": "[parameters('LS_ONPREM_SQLSERVER_DW_password')]"
+					},
+					"LS_SQLSERVER_password": {
+						"value": "[parameters('LS_SQLSERVER_password')]"
+					},
+					"LS_SQLSERVER_TABLE_password": {
+						"value": "[parameters('LS_SQLSERVER_TABLE_password')]"
+					},
+					"LS_SQLSER_TABLE_password": {
+						"value": "[parameters('LS_SQLSER_TABLE_password')]"
+					},
+					"LS_ADLS_CP_FILTER_properties_typeProperties_url": {
+						"value": "[parameters('LS_ADLS_CP_FILTER_properties_typeProperties_url')]"
+					},
+					"LS_ADLS_CSV_properties_typeProperties_url": {
+						"value": "[parameters('LS_ADLS_CSV_properties_typeProperties_url')]"
+					},
+					"LS_ADLS_FILES_properties_typeProperties_url": {
+						"value": "[parameters('LS_ADLS_FILES_properties_typeProperties_url')]"
+					},
+					"LS_ADLS_PARQUET_properties_typeProperties_url": {
+						"value": "[parameters('LS_ADLS_PARQUET_properties_typeProperties_url')]"
+					},
+					"LS_parquet_properties_typeProperties_url": {
+						"value": "[parameters('LS_parquet_properties_typeProperties_url')]"
+					},
+					"DS_SQLSERVER_TABLE_properties_typeProperties_server": {
+						"value": "[parameters('DS_SQLSERVER_TABLE_properties_typeProperties_server')]"
+					},
+					"DS_SQLSERVER_TABLE_properties_typeProperties_database": {
+						"value": "[parameters('DS_SQLSERVER_TABLE_properties_typeProperties_database')]"
+					},
+					"DS_SQLSERVER_TABLE_properties_typeProperties_userName": {
+						"value": "[parameters('DS_SQLSERVER_TABLE_properties_typeProperties_userName')]"
+					},
+					"LS_CP_SQL_FULL_properties_typeProperties_server": {
+						"value": "[parameters('LS_CP_SQL_FULL_properties_typeProperties_server')]"
+					},
+					"LS_CP_SQL_FULL_properties_typeProperties_database": {
+						"value": "[parameters('LS_CP_SQL_FULL_properties_typeProperties_database')]"
+					},
+					"LS_CP_SQL_FULL_properties_typeProperties_userName": {
+						"value": "[parameters('LS_CP_SQL_FULL_properties_typeProperties_userName')]"
+					},
+					"LS_ONPREM_SQLSERVER_DW_properties_typeProperties_server": {
+						"value": "[parameters('LS_ONPREM_SQLSERVER_DW_properties_typeProperties_server')]"
+					},
+					"LS_ONPREM_SQLSERVER_DW_properties_typeProperties_database": {
+						"value": "[parameters('LS_ONPREM_SQLSERVER_DW_properties_typeProperties_database')]"
+					},
+					"LS_ONPREM_SQLSERVER_DW_properties_typeProperties_userName": {
+						"value": "[parameters('LS_ONPREM_SQLSERVER_DW_properties_typeProperties_userName')]"
+					},
+					"LS_SQLSERVER_properties_typeProperties_server": {
+						"value": "[parameters('LS_SQLSERVER_properties_typeProperties_server')]"
+					},
+					"LS_SQLSERVER_properties_typeProperties_database": {
+						"value": "[parameters('LS_SQLSERVER_properties_typeProperties_database')]"
+					},
+					"LS_SQLSERVER_properties_typeProperties_userName": {
+						"value": "[parameters('LS_SQLSERVER_properties_typeProperties_userName')]"
+					},
+					"LS_SQLSERVER_TABLE_properties_typeProperties_server": {
+						"value": "[parameters('LS_SQLSERVER_TABLE_properties_typeProperties_server')]"
+					},
+					"LS_SQLSERVER_TABLE_properties_typeProperties_database": {
+						"value": "[parameters('LS_SQLSERVER_TABLE_properties_typeProperties_database')]"
+					},
+					"LS_SQLSERVER_TABLE_properties_typeProperties_userName": {
+						"value": "[parameters('LS_SQLSERVER_TABLE_properties_typeProperties_userName')]"
+					},
+					"LS_SQLSER_TABLE_properties_typeProperties_server": {
+						"value": "[parameters('LS_SQLSER_TABLE_properties_typeProperties_server')]"
+					},
+					"LS_SQLSER_TABLE_properties_typeProperties_database": {
+						"value": "[parameters('LS_SQLSER_TABLE_properties_typeProperties_database')]"
+					},
+					"LS_SQLSER_TABLE_properties_typeProperties_userName": {
+						"value": "[parameters('LS_SQLSER_TABLE_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
